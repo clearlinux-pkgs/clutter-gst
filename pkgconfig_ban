@@ -1,0 +1,11 @@
+# This file contains pkgconfig build requirements that get picked up
+# but are undesirable. One entry per line, no whitespace.
+clutter-osx-1.0
+gstreamer-pbutils-$GST_MAJORMINOR
+gstreamer-plugins-base-$GST_MAJORMINOR
+gstreamer-tag-$GST_MAJORMINOR
+gstreamer-video-$GST_MAJORMINOR
+gstreamer-$GST_MAJORMINOR
+gstreamer-audio-$GST_MAJORMINOR
+gstreamer-base-$GST_MAJORMINOR
+
