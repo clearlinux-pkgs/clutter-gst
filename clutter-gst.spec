@@ -4,7 +4,7 @@
 #
 Name     : clutter-gst
 Version  : 3.0.27
-Release  : 7
+Release  : 8
 URL      : https://download.gnome.org/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz
 Source0  : https://download.gnome.org/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz
 Summary  : GStreamer bindings for clutter
@@ -47,6 +47,7 @@ Group: Development
 Requires: clutter-gst-lib = %{version}-%{release}
 Requires: clutter-gst-data = %{version}-%{release}
 Provides: clutter-gst-devel = %{version}-%{release}
+Requires: clutter-gst = %{version}-%{release}
 
 %description dev
 dev components for the clutter-gst package.
@@ -86,7 +87,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549903553
+export SOURCE_DATE_EPOCH=1556994606
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -98,7 +106,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1549903553
+export SOURCE_DATE_EPOCH=1556994606
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/clutter-gst
 cp COPYING %{buildroot}/usr/share/package-licenses/clutter-gst/COPYING
