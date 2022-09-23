@@ -4,7 +4,7 @@
 #
 Name     : clutter-gst
 Version  : 3.0.27
-Release  : 11
+Release  : 12
 URL      : https://download.gnome.org/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz
 Source0  : https://download.gnome.org/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz
 Summary  : Clutter GStreamer integration
