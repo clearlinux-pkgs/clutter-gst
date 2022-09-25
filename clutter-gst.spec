@@ -4,7 +4,7 @@
 #
 Name     : clutter-gst
 Version  : 3.0.27
-Release  : 13
+Release  : 14
 URL      : https://download.gnome.org/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz
 Source0  : https://download.gnome.org/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz
 Summary  : Clutter GStreamer integration
@@ -88,15 +88,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1586222987
+export SOURCE_DATE_EPOCH=1664140489
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -105,13 +105,13 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1586222987
+export SOURCE_DATE_EPOCH=1664140489
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/clutter-gst
-cp %{_builddir}/clutter-gst-3.0.27/COPYING %{buildroot}/usr/share/package-licenses/clutter-gst/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/clutter-gst-%{version}/COPYING %{buildroot}/usr/share/package-licenses/clutter-gst/01a6b4bf79aca9b556822601186afab86e8c4fbf || :
 %make_install
 
 %files
